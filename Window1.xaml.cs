@@ -26,36 +26,15 @@ namespace zhopaSArfoi
         public Window1()
         {
             InitializeComponent();
-            YetAnotherGrid.ItemsSource = reader.GetData();
+            YetAnotherGrid.ItemsSource = reader.GetDataBy3();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void YetAnotherGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            Environment.Exit(0);
-        }
+            YetAnotherGrid.Columns[0].Visibility = Visibility.Collapsed;
+            YetAnotherGrid.Columns[4].Visibility = Visibility.Collapsed;
+            YetAnotherGrid.Columns[5].Visibility = Visibility.Collapsed;
 
-        private void Button_Click_1(object sender, RoutedEventArgs e) // добавление
-        {
-            var lastName = F.Text;
-            var firstName = I.Text;
-            var middlename = O.Text;
-            var id = Convert.ToInt32(ID.Text);
-            reader.AddReader(lastName, firstName, middlename, id);
-            YetAnotherGrid.ItemsSource = reader.GetData();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e) // удаление
-        {
-            int id = (int)(YetAnotherGrid.SelectedItem as DataRowView).Row[0];
-            reader.DeleteQuery(id);
-            YetAnotherGrid.ItemsSource = reader.GetData();
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e) // изменение
-        {
-            int id = (int) (YetAnotherGrid.SelectedItem as DataRowView).Row[0];
-            reader.UpdateQuery(F.Text, I.Text, O.Text, Convert.ToInt32(ID.Text), id);
-            YetAnotherGrid.ItemsSource = reader.GetData();
         }
     }
 }

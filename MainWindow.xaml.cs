@@ -25,39 +25,12 @@ namespace zhopaSArfoi
         public MainWindow()
         {
             InitializeComponent();
-            YetAnotherGrid.ItemsSource = context.Book.ToList();
+            YetAnotherGrid.ItemsSource = context.Reader.ToList();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) // окно 2 (DataSet)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             new Window1().Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e) // добавление
-        {
-            Book buch = new Book();
-            buch.Book_Name = Name.Text;
-            buch.Book_Author = Author.Text;
-            buch.Book_Year = Convert.ToInt32(Year.Text);
-
-            context.Book.Add(buch);
-            context.SaveChanges();
-            YetAnotherGrid.ItemsSource = context.Book.ToList(); 
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e) // удаление
-        {
-            if (YetAnotherGrid.ItemsSource != null)
-            {
-                context.Book.Remove(YetAnotherGrid.SelectedItem as Book);
-                context.SaveChanges();
-                YetAnotherGrid.ItemsSource = context.Book.ToList();
-            }
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e) // изменение
-        {
-            context.SaveChanges();
         }
     }
 }

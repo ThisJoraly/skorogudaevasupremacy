@@ -7,24 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="204*"/>
-            <RowDefinition Height="41*"/>
-            <RowDefinition Height="34*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <DataGrid x:Name="YetAnotherGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="4" HorizontalAlignment="Left" Width="600" Margin="0,0,0,2"/>
-        <TextBox x:Name="Name" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="150" Height="28"/>
-        <TextBox x:Name="Author"  HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="150" Height="28" Grid.Column="1"/>
-        <TextBox x:Name="Year" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="150" Height="28" Grid.Column="2"/>
-        <Button Content="Добавить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="41" Width="150" Click="Button_Click_1"/>
-        <Button Content="Изменить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="41" Width="150" Grid.Column="1" Click="Button_Click_3"/>
-        <Button Content="Удалить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="41" Width="150" Grid.Column="2" Click="Button_Click_2"/>
-        <Button Content="Окно читателей" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="41" Width="150" Grid.Column="3" Click="Button_Click"/>
+        <DataGrid x:Name="YetAnotherGrid" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Last_Name}" Header="Ф"/>
+                <DataGridTextColumn Binding="{Binding First_Name}" Header="И"/>
+                <DataGridTextColumn Binding="{Binding Middle_Name}" Header="О"/>
+                <DataGridTextColumn Binding="{Binding Book.Book_Name}" Header="Название"/>
+                <DataGridTextColumn Binding="{Binding Book.Book_Author}" Header="Автор"/>
+                <DataGridTextColumn Binding="{Binding Book.Book_Year}" Header="Год"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="715,385,0,0" VerticalAlignment="Top" Height="34" Width="75" Click="Button_Click"/>
     </Grid>
 </Window>

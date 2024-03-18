@@ -7,25 +7,9 @@
         mc:Ignorable="d"
         Title="Window1" Height="300" Width="600">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="204*"/>
-            <RowDefinition Height="41*"/>
-            <RowDefinition Height="34*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <DataGrid x:Name="YetAnotherGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="4" HorizontalAlignment="Left" Width="600" Margin="0,0,0,2"/>
-        <TextBox x:Name="F" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Height="28" Margin="0,202,0,0" Grid.RowSpan="2"/>
-        <TextBox x:Name="I"  HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Height="28" Grid.Column="1" Margin="0,202,0,0" Grid.RowSpan="2"/>
-        <TextBox x:Name="O" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Height="28" Grid.Column="2" Margin="0,202,0,0" Grid.RowSpan="2"/>
-        <TextBox x:Name="ID" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Height="28" Grid.Column="3" Margin="0,202,0,0" Grid.RowSpan="2"/>
-        <Button Content="Добавить" HorizontalAlignment="Center" Margin="0,34,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2" Height="41" Width="150" Click="Button_Click_1"/>
-        <Button Content="Изменить" HorizontalAlignment="Center" Margin="0,34,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2" Height="41" Width="150" Grid.Column="1" Click="Button_Click_3"/>
-        <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,34,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2" Height="41" Width="150" Grid.Column="2" Click="Button_Click_2"/>
-        <Button Content="Закрыть" HorizontalAlignment="Center" Margin="0,34,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2" Height="41" Width="150" Grid.Column="3" Click="Button_Click"/>
+
+        <DataGrid x:Name="YetAnotherGrid" Grid.RowSpan="2" Loaded="YetAnotherGrid_Loaded">
+
+        </DataGrid>
     </Grid>
 </Window>
