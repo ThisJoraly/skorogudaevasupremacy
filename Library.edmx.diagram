@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="241bb5945a8b490898c97d265bb1daa6" Name="Diagram1">
+        <EntityTypeShape EntityType="TownLibraryModel.Book" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" FillColor="122, 122, 204" />
+        <EntityTypeShape EntityType="TownLibraryModel.Reader" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" FillColor="122, 122, 204" />
+        <AssociationConnector Association="TownLibraryModel.FK__Reader__Book_ID__4BAC3F29" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

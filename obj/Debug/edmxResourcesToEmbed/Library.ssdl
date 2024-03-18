@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище TownLibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="ID_Book" />
+    </Key>
+    <Property Name="ID_Book" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Book_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Book_Author" Type="varchar" MaxLength="100" />
+    <Property Name="Book_Year" Type="int" />
+  </EntityType>
+  <EntityType Name="Reader">
+    <Key>
+      <PropertyRef Name="ID_Reader" />
+    </Key>
+    <Property Name="ID_Reader" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Last_Name" Type="varchar" MaxLength="60" />
+    <Property Name="First_Name" Type="varchar" MaxLength="60" />
+    <Property Name="Middle_Name" Type="varchar" MaxLength="60" />
+    <Property Name="Book_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Reader__Book_ID__4BAC3F29">
+    <End Role="Book" Type="Self.Book" Multiplicity="1" />
+    <End Role="Reader" Type="Self.Reader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="ID_Book" />
+      </Principal>
+      <Dependent Role="Reader">
+        <PropertyRef Name="Book_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище TownLibraryModelContainer">
+    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reader" EntityType="Self.Reader" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Reader__Book_ID__4BAC3F29" Association="Self.FK__Reader__Book_ID__4BAC3F29">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Reader" EntitySet="Reader" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
