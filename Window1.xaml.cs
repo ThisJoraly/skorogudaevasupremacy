@@ -22,19 +22,27 @@ namespace zhopaSArfoi
     public partial class Window1 : Window
     {
 
+        BookTableAdapter books = new BookTableAdapter();
         ReaderTableAdapter reader = new ReaderTableAdapter();
         public Window1()
         {
             InitializeComponent();
-            YetAnotherGrid.ItemsSource = reader.GetDataBy3();
+            YetAnotherGrid.ItemsSource = books.GetData();
+            combobox.ItemsSource = reader.GetData();
+            combobox.DisplayMemberPath = "Last_Name";
         }
 
-        private void YetAnotherGrid_Loaded(object sender, RoutedEventArgs e)
+        private void Search_Click(object sender, RoutedEventArgs e)
         {
-            YetAnotherGrid.Columns[0].Visibility = Visibility.Collapsed;
-            YetAnotherGrid.Columns[4].Visibility = Visibility.Collapsed;
-            YetAnotherGrid.Columns[5].Visibility = Visibility.Collapsed;
-
+            YetAnotherGrid.ItemsSource = books.SearchData(textbox.Text);
+        }
+        private void Filter_Click(object sender, RoutedEventArgs e)
+        {
+            if(combobox.SelectedItem != null)
+            {
+                var id = (int)(combobox.SelectedItem as DataRowView).Row[0];
+                YetAnotherGrid.ItemsSource = books.FilterData(id);
+            }
         }
     }
 }

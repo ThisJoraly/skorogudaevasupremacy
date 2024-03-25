@@ -1426,11 +1426,24 @@ SELECT ID_Book, Book_Name, Book_Author, Book_Year FROM Book WHERE (ID_Book = @ID
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_Book, Book_Name, Book_Author, Book_Year FROM dbo.Book";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT ID_Book, Book_Name, Book_Author, Book_Year FROM dbo.Book\r\nWHERE (ID_Book =" +
+                " @id)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Book", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT ID_Book, Book_Name, Book_Author, Book_Year FROM dbo.Book\r\nWHERE (Book_Name" +
+                " LIKE \'%\' + @search + \'%\') OR\r\n(Book_Author LIKE \'%\' + @search + \'%\') OR\r\n(Book_" +
+                "Year LIKE \'%\' + @search + \'%\')";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@search", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Book_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1452,6 +1465,35 @@ SELECT ID_Book, Book_Name, Book_Author, Book_Year FROM Book WHERE (ID_Book = @ID
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual TownLibraryDataSet.BookDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            TownLibraryDataSet.BookDataTable dataTable = new TownLibraryDataSet.BookDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual TownLibraryDataSet.BookDataTable FilterData(int id) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
+            TownLibraryDataSet.BookDataTable dataTable = new TownLibraryDataSet.BookDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual TownLibraryDataSet.BookDataTable SearchData(string search) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((search == null)) {
+                throw new global::System.ArgumentNullException("search");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(search));
+            }
             TownLibraryDataSet.BookDataTable dataTable = new TownLibraryDataSet.BookDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

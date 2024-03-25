@@ -4,12 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:zhopaSArfoi"
-        mc:Ignorable="d"
-        Title="Window1" Height="300" Width="600">
+        mc:Ignorable="d" Height="352" Width="600">
     <Grid>
-
-        <DataGrid x:Name="YetAnotherGrid" Grid.RowSpan="2" Loaded="YetAnotherGrid_Loaded">
-
-        </DataGrid>
+        <DataGrid x:Name="YetAnotherGrid" Margin="21,66,21,10"/>
+        <TextBox x:Name="textbox" HorizontalAlignment="Left" Margin="21,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="453"/>
+        <Button Name="Search" Content="Search" HorizontalAlignment="Left" Margin="490,10,0,0" VerticalAlignment="Top" Height="18" Width="89" Click="Search_Click"/>
+        <ComboBox Name="combobox" HorizontalAlignment="Left" Margin="21,33,0,0" VerticalAlignment="Top" Width="453"/>
+        <Button Name="Filter" Content="Filter" HorizontalAlignment="Left" Margin="490,34,0,0" VerticalAlignment="Top" Height="21" Width="89" Click="Filter_Click"/>
     </Grid>
 </Window>

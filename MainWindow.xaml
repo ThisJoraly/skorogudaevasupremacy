@@ -7,17 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="YetAnotherGrid" AutoGenerateColumns="False">
+        <DataGrid x:Name="YetAnotherGrid" Margin="21,66,21,10" AutoGenerateColumns="False">
             <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID_Reader}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding Last_Name}" Header="Ф"/>
                 <DataGridTextColumn Binding="{Binding First_Name}" Header="И"/>
                 <DataGridTextColumn Binding="{Binding Middle_Name}" Header="О"/>
-                <DataGridTextColumn Binding="{Binding Book.Book_Name}" Header="Название"/>
-                <DataGridTextColumn Binding="{Binding Book.Book_Author}" Header="Автор"/>
-                <DataGridTextColumn Binding="{Binding Book.Book_Year}" Header="Год"/>
-                
+                <DataGridTextColumn Binding="{Binding Book_ID}" Header="Книга"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="715,385,0,0" VerticalAlignment="Top" Height="34" Width="75" Click="Button_Click"/>
+        <TextBox x:Name="textbox" HorizontalAlignment="Left" Margin="21,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="453"/>
+        <Button Name="Search" Content="Search" HorizontalAlignment="Left" Margin="490,10,0,0" VerticalAlignment="Top" Height="18" Width="89" Click="Search_Click"/>
+        <ComboBox Name="combobox" HorizontalAlignment="Left" Margin="21,33,0,0" VerticalAlignment="Top" Width="453"/>
+        <Button Name="Filter" Content="Filter" HorizontalAlignment="Left" Margin="490,34,0,0" VerticalAlignment="Top" Height="21" Width="89" Click="Filter_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="594,10,0,0" VerticalAlignment="Top" Height="45" Width="185" Click="Button_Click"/>
     </Grid>
 </Window>
